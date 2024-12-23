@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <script src="/static/js/bookmarks.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Search Results</h1>
+      <a href="/" class="back-button">⬅ Back to Search</a>
+    </header>
+    <main>
+      <!-- Display error message if .Error is present -->
+      {{ if .Error }}
+      <section class="error-message">
+        <h2>An error occurred</h2>
+        <p>{{ .Error }}</p>
+      </section>
+      {{ else }}
+      <section class="result-grid">
+        {{ if .Results }} {{ range .Results }}
+        <div class="result-card">
+          <a href="{{ .Link }}" target="_blank">
+            <img
+              src="{{ if .Image }}{{ .Image }}{{ else }}/static/images/placeholder.png{{ end }}"
+              alt="{{ if .Title }}{{ .Title }}{{ else }}No Title{{ end }}"
+              loading="lazy"
+              class="thumbnail"
+            />
+          </a>
+          <h2 class="result-title">
+            {{ if .Title }}{{ .Title }}{{ else }}No Title Available{{ end }}
+          </h2>
+          <p class="result-description">
+            {{ if .Description }}{{ .Description }}{{ else }}No Description
+            Available{{ end }}
+          </p>
+          {{ if .IsBookmarked }}
+          <form action="/removeBookmark" method="post">
+            <input type="hidden" name="Link" value="{{ .Link }}" />
+            <button type="submit" class="unbookmark-button">Unbookmark</button>
+          </form>
+          {{ else }}
+          <form action="/addBookmark" method="post">
+            <input type="hidden" name="Link" value="{{ .Link }}" />
+            <button type="submit" class="bookmark-button">Bookmark</button>
+          </form>
+          {{ end }}
+        </div>
+
+        {{ end }} {{ else }}
+        <p class="no-results">
+          No results found. Try searching for something else!
+        </p>
+        {{ end }}
+      </section>
+      {{ end }}
+    </main>
+  </body>
+</html>

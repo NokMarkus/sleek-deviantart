@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmarks</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Bookmarks</h1>
+    <a href="/" class="back-button">⬅ Back to Search</a>
+  </header>
+  <main>
+    <section class="result-grid" aria-label="Bookmarks">
+      {{ range .Bookmarks }}
+      <div class="result-card">
+        <a href="{{ .Link }}" target="_blank">
+          <img src="{{ .Image }}" alt="{{ .Title }}" loading="lazy" class="thumbnail">
+        </a>
+        <h2 class="result-title">{{ .Title }}</h2>
+        <p class="result-description">{{ .Description }}</p>
+        <!-- Unbookmark Button -->
+        <form action="/removeBookmark" method="post" enctype="application/json">
+          <input type="hidden" name="Link" value="{{ .Link }}">
+          <button type="submit" class="unbookmark-button">Unbookmark</button>
+        </form>
+      </div>
+      {{ end }}
+      {{ if not .Bookmarks }}
+      <p class="no-results">No bookmarks saved yet!</p>
+      {{ end }}
+    </section>
+  </main>
+</body>
+</html>

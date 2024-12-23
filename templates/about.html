@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+    }
+
+    header h1 {
+      color: #f9c74f;
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links h2 {
+      font-size: 1.5rem;
+      color: #f9c74f;
+      margin-bottom: 15px;
+    }
+
+    .social-links a {
+      margin: 10px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+
+    .social-links img {
+      width: 50px;
+      height: 50px;
+      filter: brightness(0) invert(1); /* Ensure icons are visible */
+      transition: filter 0.3s ease;
+    }
+
+    .social-links a:hover img {
+      filter: brightness(1) invert(0);
+    }
+
+    .iframe-container {
+      text-align: center;
+    }
+
+    .iframe-container iframe {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+      text-decoration: none;
+      color: #f9c74f;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin-top: 30px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Me</h1>
+  </header>
+  <main>
+    <p>
+      I'm Markus, and I program for fun.<br />
+      Made with ❤️.<br/>
+      BTC: bc1q4tejat8k59kh8jkwwvvdx8uqam0gjsf0j90x6l<br/>
+    </p>
+    <section class="social-links">
+      <h2>Connect with Me</h2>
+      <a href="https://github.com/nokmarkus" target="_blank" aria-label="GitHub">
+        <img src="/static/icons/github.svg" alt="GitHub Icon" />
+      </a>
+      <a href="https://discord.com/users/265466468798300160" target="_blank" aria-label="Discord">
+        <img src="/static/icons/discord.svg" alt="Discord Icon" />
+      </a>
+      <a href="https://mempool.space/address/bc1q4tejat8k59kh8jkwwvvdx8uqam0gjsf0j90x6l" target="_blank" aria-label="Crypto">
+        <img src="/static/icons/bitcoin.svg" alt="Crypto Icon" />
+      </a>
+    </section>
+    <div class="iframe-container">
+      <iframe
+      title="Discord user embed"
+      width="340"
+      height="192"
+      frameborder="0"
+      sandbox="allow-scripts"
+      src="https://widgets.vendicated.dev/user?id=265466468798300160&theme=dark&banner=true&full-banner=true&rounded-corners=true&discord-icon=true&badges=true&guess-nitro=true&"
+    ></iframe>
+    </div>
+    <a href="/">⬅ Back to Home</a>
+  </main>
+</body>
+</html>
